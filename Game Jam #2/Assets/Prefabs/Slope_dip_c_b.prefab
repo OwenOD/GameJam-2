@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4361052972090080}
   - component: {fileID: 33350979354104822}
   - component: {fileID: 23537723513656898}
+  - component: {fileID: 64320986023278476}
+  - component: {fileID: 64470532359537264}
   m_Layer: 0
   m_Name: Slope_dip_c_b
   m_TagString: Untagged
@@ -110,4 +112,32 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1148373853788992}
+  m_Mesh: {fileID: 4300000, guid: 6df1e9533989c8c43846bfccedd18768, type: 3}
+--- !u!64 &64320986023278476
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1148373853788992}
+  m_Material: {fileID: 13400000, guid: 90349e4d42cad954fb2edb0919cad8a1, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 6df1e9533989c8c43846bfccedd18768, type: 3}
+--- !u!64 &64470532359537264
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1148373853788992}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 6df1e9533989c8c43846bfccedd18768, type: 3}

@@ -36,6 +36,8 @@ GameObject:
   - component: {fileID: 4806720365524660}
   - component: {fileID: 33420726617397518}
   - component: {fileID: 23122276320349976}
+  - component: {fileID: 64424775982342302}
+  - component: {fileID: 64646294376565478}
   m_Layer: 0
   m_Name: Incline_arch_a_b
   m_TagString: Untagged
@@ -110,4 +112,32 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1746125408138384}
+  m_Mesh: {fileID: 4300000, guid: 7430d122fec89184da1837c6c2155cac, type: 3}
+--- !u!64 &64424775982342302
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1746125408138384}
+  m_Material: {fileID: 13400000, guid: 90349e4d42cad954fb2edb0919cad8a1, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 7430d122fec89184da1837c6c2155cac, type: 3}
+--- !u!64 &64646294376565478
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1746125408138384}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 7430d122fec89184da1837c6c2155cac, type: 3}

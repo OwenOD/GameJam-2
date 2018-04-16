@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4779893182502364}
   - component: {fileID: 33672217662309326}
   - component: {fileID: 23474622485007082}
+  - component: {fileID: 64505630126060122}
+  - component: {fileID: 64087715078102736}
   m_Layer: 0
   m_Name: Slope_stright_c_c
   m_TagString: Untagged
@@ -110,4 +112,32 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1425068950841532}
+  m_Mesh: {fileID: 4300000, guid: cc4c4d6f7234b584aa77c8cfe5d7cd0e, type: 3}
+--- !u!64 &64087715078102736
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1425068950841532}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: cc4c4d6f7234b584aa77c8cfe5d7cd0e, type: 3}
+--- !u!64 &64505630126060122
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1425068950841532}
+  m_Material: {fileID: 13400000, guid: 90349e4d42cad954fb2edb0919cad8a1, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: cc4c4d6f7234b584aa77c8cfe5d7cd0e, type: 3}

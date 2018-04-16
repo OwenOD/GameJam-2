@@ -21,7 +21,7 @@ public class Player : MonoBehaviour {
     public void Update()
     {
         //need to adjust
-        boing = rb.velocity.x;
+        boing = rb.velocity.z;
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -37,11 +37,11 @@ public class Player : MonoBehaviour {
         Debug.Log("velovity is: " + rb.velocity);
         if (isGrounded)
         {
-            rb.velocity += new Vector3 (speed,0,0);
+            rb.velocity -= new Vector3 (0,0,speed);
         }
         if (!isGrounded)
         {
-            rb.velocity -= new Vector3(speed/3, 0, 0);
+            rb.velocity += new Vector3(0, 0, speed / 3);
         }
     }
     public void OnTriggerEnter(Collider other)
