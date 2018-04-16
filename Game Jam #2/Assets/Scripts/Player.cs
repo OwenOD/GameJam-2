@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-    public float speed = 0.1f;
-    public float boing = 0.1f;
+    public float startSpeed = 0.1f;
+    private float speed;
+    public float boing;
 
     //player should spawn above the ground
     public bool isGrounded = false;
@@ -14,10 +15,14 @@ public class Player : MonoBehaviour {
 
     public void Start()
     {
+        speed = startSpeed;
         rb = GetComponent<Rigidbody>();
     }
     public void Update()
     {
+        //need to adjust
+        boing = rb.velocity.x;
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (isGrounded)
@@ -33,6 +38,10 @@ public class Player : MonoBehaviour {
         if (isGrounded)
         {
             rb.velocity += new Vector3 (speed,0,0);
+        }
+        if (!isGrounded)
+        {
+            rb.velocity -= new Vector3(speed/3, 0, 0);
         }
     }
     public void OnTriggerEnter(Collider other)
