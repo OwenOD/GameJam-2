@@ -1,21 +1,16 @@
 fileFormatVersion: 2
-guid: 590d6ce3052e25344bce6c74237ba955
-timeCreated: 1523849958
+guid: e151ce927b5efde4d89cf60c2b391279
+timeCreated: 1523854546
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: ascend
-    100002: mesh_up_25_50
-    100004: //RootNode
-    400000: ascend
-    400002: mesh_up_25_50
-    400004: //RootNode
+    100000: //RootNode
+    400000: //RootNode
     2100000: lambert1
-    2300000: mesh_up_25_50
-    3300000: mesh_up_25_50
+    2300000: //RootNode
+    3300000: //RootNode
     4300000: mesh_up_25_50
-    9500000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -90,7 +85,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

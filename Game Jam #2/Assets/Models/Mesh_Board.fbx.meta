@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: ddec06ba7c18f024db9feccfc866653b
-timeCreated: 1523843018
+guid: c7db2601e92efdf4c8591f69d3c45e59
+timeCreated: 1523854196
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: lambert1
+    2100000: pasted__lambert2
     2300000: //RootNode
     3300000: //RootNode
-    4300000: mesh_up_flat_low
+    4300000: mesh_board
     9500000: //RootNode
   externalObjects: {}
   materials:

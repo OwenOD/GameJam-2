@@ -1,21 +1,16 @@
 fileFormatVersion: 2
-guid: 84d4b62477063754682d35f7af544cbe
-timeCreated: 1523849958
+guid: 0f88022944e3fe24f80a866857c3f280
+timeCreated: 1523854545
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: decline
-    100002: mesh_down_0_50
-    100004: //RootNode
-    400000: decline
-    400002: mesh_down_0_50
-    400004: //RootNode
+    100000: //RootNode
+    400000: //RootNode
     2100000: lambert1
-    2300000: mesh_down_0_50
-    3300000: mesh_down_0_50
+    2300000: //RootNode
+    3300000: //RootNode
     4300000: mesh_down_0_50
-    9500000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -90,7 +85,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
