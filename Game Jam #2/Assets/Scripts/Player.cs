@@ -21,7 +21,7 @@ public class Player : MonoBehaviour {
     public void Update()
     {
         //need to adjust
-        boing = rb.velocity.z;
+        boing = (-rb.velocity.z / 3);
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
