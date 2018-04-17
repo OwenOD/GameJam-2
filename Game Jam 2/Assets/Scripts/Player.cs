@@ -10,6 +10,7 @@ public class Player : MonoBehaviour {
     public float boing;
 
     public GameObject pivot;
+    public AudioClip jumpSound;
 
     //player should spawn above the ground
     public bool isGrounded = false;
@@ -88,6 +89,7 @@ public class Player : MonoBehaviour {
     {
         Debug.Log("BOING!");
         rb.velocity += new Vector3(0, boing, 0);
+        Sounds.instance.PlayJump(jumpSound);
     }
     public void Rotate()
     {
