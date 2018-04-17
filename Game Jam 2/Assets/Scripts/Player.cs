@@ -15,6 +15,11 @@ public class Player : MonoBehaviour
 
     [SerializeField] float rotationForce = 5;
 
+    [SerializeField] float normalDrag = 0;
+
+    [SerializeField] float airDrag = 0.5f;
+
+
     [SerializeField] GameObject pivot;
 
     [SerializeField] Menu menu;
@@ -35,40 +40,43 @@ public class Player : MonoBehaviour
     }
     public void Update()
     {
-
-
         //if (menu.isPaused == false)
+        //    return;
+
+
+        CheckIfGrounded();
+
+        //need to adjust
+        //jumpForce = (-rb.velocity.z / 3);
+
+        if (Input.GetMouseButton(0))
         {
-            CheckIfGrounded();
-
-
-            //need to adjust
-            //jumpForce = (-rb.velocity.z / 3);
-
-            if (Input.GetMouseButton(0))
+            if (wasMousePressed == false) // Initial mouse press
             {
-                if (wasMousePressed == false) // Initial mouse press
-                {
-                    Jump();
-                }
-
-                if (!isGrounded)
-                {
-                    Rotate();
-                }
+                Jump();
             }
 
-            if (isGrounded)
-            {
-                rb.velocity -= new Vector3(0, 0, speed);
-            }
             if (!isGrounded)
             {
-                rb.velocity += new Vector3(0, 0, speed / 3);
+                Rotate();
             }
         }
 
+        // Move while we are grounded
+        if (isGrounded)
+        {
+            rb.drag = normalDrag;
+            rb.velocity -= new Vector3(0, 0, speed);
+        }
+        // Add air resistance while in the air
+        if (!isGrounded)
+        {
+            rb.drag = airDrag;
+        }
+
         wasMousePressed = Input.GetMouseButton(0);
+
+
     }
 
     void CheckIfGrounded()
