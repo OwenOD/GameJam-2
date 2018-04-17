@@ -26,7 +26,6 @@ GameObject:
   - component: {fileID: 65326219410408636}
   - component: {fileID: 65684789231735160}
   - component: {fileID: 114339390049633978}
-  - component: {fileID: 136767691356163610}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -159,7 +158,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1089777088117976}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.5, y: 1, z: -1}
+  m_LocalPosition: {x: 0, y: 1, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4210533667692944}
@@ -573,10 +572,10 @@ BoxCollider:
   m_GameObject: {fileID: 1089777088117976}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.36399108, y: 0.16, z: 1.4878422}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.36399108, y: 0.3155807, z: 1.4878422}
+  m_Center: {x: 0, y: -0.06, z: 0}
 --- !u!65 &65684789231735160
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -585,10 +584,10 @@ BoxCollider:
   m_GameObject: {fileID: 1089777088117976}
   m_Material: {fileID: 13400000, guid: ccd3287dc92c5a240a2e739dc61d80dc, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.36399108, y: 0.16, z: 1.4878422}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.36399108, y: 0.31558067, z: 1.4878422}
+  m_Center: {x: 0, y: -0.06, z: 0}
 --- !u!95 &95096283933640982
 Animator:
   serializedVersion: 3
@@ -634,25 +633,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af95ddf667f0a4a43af2098fcf5dbfe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSpeed: 0.2
+  startSpeed: 0.1
   distToGround: 0.4
   distToSide: 0.7
   jumpForce: 10
-  rotationForce: 6
-  normalDrag: 0
-  airDrag: 0.5
+  rotationForce: 5
   pivot: {fileID: 0}
   menu: {fileID: 0}
---- !u!136 &136767691356163610
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1089777088117976}
-  m_Material: {fileID: 13400000, guid: ccd3287dc92c5a240a2e739dc61d80dc, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.17
-  m_Height: 1.43
-  m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 0}

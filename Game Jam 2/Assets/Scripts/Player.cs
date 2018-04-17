@@ -24,6 +24,8 @@ public class Player : MonoBehaviour
 
     [SerializeField] Menu menu;
 
+    public bool alive = true;
+
     float speed;
 
     // If the player is touching the ground or not
@@ -123,6 +125,14 @@ public class Player : MonoBehaviour
         rb.AddTorque(rotationForce, 0, 0, ForceMode.Acceleration);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Environment")
+        {
+            alive = false;
+        }
+    }
+
     private void OnDrawGizmos()
     {
         // Draw a line for the grounded raycast
@@ -134,4 +144,5 @@ public class Player : MonoBehaviour
         // Draw a line for the grounded raycast
         Gizmos.DrawLine(transform.position + (transform.forward * -distToSide), transform.position + (transform.up * -distToGround) + (transform.forward * -distToSide));
     }
+
 }
