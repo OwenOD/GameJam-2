@@ -200,8 +200,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a061678aaf21ebf4f9349b0eb6e58b3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
-  maxDistance: 0.2
+  speed: 45
+  maxDistance: 0
   targetTransform: {fileID: 1571219127}
 --- !u!1 &71782716
 GameObject:
@@ -338,8 +338,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a061678aaf21ebf4f9349b0eb6e58b3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
-  maxDistance: 0.2
+  speed: 45
+  maxDistance: 0
   targetTransform: {fileID: 912912693}
 --- !u!1 &704767037
 GameObject:
@@ -544,8 +544,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a061678aaf21ebf4f9349b0eb6e58b3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
-  maxDistance: 0.2
+  speed: 45
+  maxDistance: 0
   targetTransform: {fileID: 1870484424}
 --- !u!1 &797614817
 GameObject:
@@ -571,10 +571,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5711489, z: -0.011948032}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 912912693}
-  - {fileID: 1571219127}
-  - {fileID: 1870484424}
+  m_Children: []
   m_Father: {fileID: 2063259598}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -680,7 +677,7 @@ Transform:
   m_LocalPosition: {x: 0, y: -0.035923004, z: 0.44057748}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 797614818}
+  m_Father: {fileID: 2108279295}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1107457744
@@ -759,7 +756,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1107457744}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -15.92, y: 6.94, z: -10}
+  m_LocalPosition: {x: -7.34, y: 5.17, z: -3.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -941,7 +938,7 @@ Transform:
   m_LocalPosition: {x: 0, y: -0.02564621, z: -0.422823}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 797614818}
+  m_Father: {fileID: 2108279295}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1717642461
@@ -1503,7 +1500,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.5489435, z: 0.014131336}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 797614818}
+  m_Father: {fileID: 2108279295}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2019711827
@@ -1684,7 +1681,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a061678aaf21ebf4f9349b0eb6e58b3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
+  speed: 45
   maxDistance: 0.2
   targetTransform: {fileID: 797614818}
 --- !u!23 &2108279293
@@ -1740,7 +1737,10 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 5.6911488, z: -0.011948032}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 912912693}
+  - {fileID: 1571219127}
+  - {fileID: 1870484424}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
