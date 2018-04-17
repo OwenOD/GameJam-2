@@ -6,13 +6,17 @@ public class Player : MonoBehaviour {
 
     public float startSpeed = 0.1f;
     private float speed;
+
     public float boing;
+
+    public GameObject pivot;
 
     //player should spawn above the ground
     public bool isGrounded = false;
 
     Rigidbody rb;
 
+    public Menu menu;
     public void Start()
     {
         speed = startSpeed;
@@ -20,28 +24,39 @@ public class Player : MonoBehaviour {
     }
     public void Update()
     {
-        //need to adjust
-        boing = (-rb.velocity.z / 3);
-
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (menu.isPaused == false)
         {
+            //need to adjust
+            boing = (-rb.velocity.z / 3);
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if (isGrounded)
+                {
+                    Jump();
+                }
+                else if (!isGrounded)
+                {
+                    Rotate();
+                }
+            }
+            Debug.Log("velovity is: " + rb.velocity);
             if (isGrounded)
             {
-                Jump();
+                rb.velocity -= new Vector3(0, 0, speed);
             }
-            else if (!isGrounded)
+            if (!isGrounded)
             {
-                Rotate();
+                rb.velocity += new Vector3(0, 0, speed / 3);
             }
         }
-        Debug.Log("velovity is: " + rb.velocity);
-        if (isGrounded)
+        else if (menu.isPaused)
         {
-            rb.velocity -= new Vector3 (0,0,speed);
+            Debug.Log("Game works");
         }
-        if (!isGrounded)
+        else
         {
-            rb.velocity += new Vector3(0, 0, speed / 3);
+            Debug.Log("DANGER WILL ROBINSON!");
         }
     }
     public void OnTriggerEnter(Collider other)
