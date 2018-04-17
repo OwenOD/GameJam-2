@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Player : MonoBehaviour
 {
@@ -107,6 +108,10 @@ public class Player : MonoBehaviour
 
     void Jump()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
         if (isGrounded)
         {
             transform.position += new Vector3(0, distToGround + 0.01f, 0);
@@ -122,6 +127,10 @@ public class Player : MonoBehaviour
     }
     void Rotate()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
         rb.AddTorque(rotationForce, 0, 0, ForceMode.Acceleration);
     }
 
