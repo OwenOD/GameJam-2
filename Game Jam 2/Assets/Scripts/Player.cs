@@ -128,6 +128,11 @@ public class Player : MonoBehaviour
     }
     void Rotate()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+
         rb.AddTorque(rotationForce, 0, 0, ForceMode.Acceleration);
     }
 
