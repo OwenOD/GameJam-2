@@ -410,7 +410,7 @@ Camera:
   m_GameObject: {fileID: 1107457744}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0.29411763, g: 0.2549815, b: 0.20544982, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
