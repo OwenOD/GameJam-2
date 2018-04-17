@@ -7,6 +7,8 @@ public class Menu : MonoBehaviour {
     public GameObject PlayScreen;
     public GameObject PauseScreen;
     public GameObject pauseButton;
+    [SerializeField] AudioClip pauseClip;
+    [SerializeField] AudioClip unpauseClip;
 
     Rigidbody rb;
     public bool isPaused;
@@ -27,6 +29,8 @@ public class Menu : MonoBehaviour {
         PauseScreen.SetActive(true);
         PlayScreen.SetActive(false);
 
+        Sounds.instance.PlayPauseButton(pauseClip);
+
         isPaused = true;
     }
 
@@ -35,6 +39,8 @@ public class Menu : MonoBehaviour {
         Time.timeScale = 1;
         PlayScreen.SetActive(true);
         PauseScreen.SetActive(false);
+
+        Sounds.instance.PlayUnPause(pauseClip);
 
         isPaused = false;
     }

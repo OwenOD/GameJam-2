@@ -6,8 +6,13 @@ using UnityEngine;
 
 public class Sounds : MonoBehaviour
 {
-    public AudioSource jumpSound;
-    public AudioSource backGroundMusic;
+    [SerializeField] AudioSource jumpSound;
+    [SerializeField] AudioSource backGroundMusic;
+    [SerializeField] AudioSource startButton;
+    [SerializeField] AudioSource deathSound;
+    [SerializeField] AudioSource pauseButton;
+    [SerializeField] AudioSource unpauseButton;
+
     public static Sounds instance = null;
 
     // Use this for initialization
@@ -20,13 +25,34 @@ public class Sounds : MonoBehaviour
 	}
 
 
+    //Plays All Sounds
+
+    public void PlayStartButton(AudioClip clip)
+    {
+        startButton.Play();
+    }
+
+    public void PlayPauseButton(AudioClip clip)
+    {
+        pauseButton.Play();
+    }
+
+    public void PlayUnPause(AudioClip clip)
+    {
+        unpauseButton.Play();
+    }
+
+    public void PlayDeathSound(AudioClip clip)
+    {
+        deathSound.Play();
+    }
 
     public void PlayJump(AudioClip clip)
     {
         jumpSound.Play();
     }
 
-    public void BackGroundMusic()
+    public void PlayBackGroundMusic()
     {
         backGroundMusic.Play();
     }
