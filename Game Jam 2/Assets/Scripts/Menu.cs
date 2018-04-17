@@ -22,7 +22,7 @@ public class Menu : MonoBehaviour {
         PauseScreen.SetActive(true);
         PlayScreen.SetActive(false);
 
-        Sounds.instance.PlayPauseButton(pauseClip);
+        Sounds.instance.PlayPauseButton();
 
         isPaused = true;
     }
@@ -32,7 +32,7 @@ public class Menu : MonoBehaviour {
         PlayScreen.SetActive(true);
         PauseScreen.SetActive(false);
 
-        Sounds.instance.PlayUnPause(pauseClip);
+        Sounds.instance.PlayUnPause();
 
         isPaused = false;
     }

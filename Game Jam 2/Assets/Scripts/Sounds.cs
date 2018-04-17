@@ -27,27 +27,27 @@ public class Sounds : MonoBehaviour
 
     //Plays All Sounds
 
-    public void PlayStartButton(AudioClip clip)
+    public void PlayStartButton()
     {
         startButton.Play();
     }
 
-    public void PlayPauseButton(AudioClip clip)
+    public void PlayPauseButton()
     {
         pauseButton.Play();
     }
 
-    public void PlayUnPause(AudioClip clip)
+    public void PlayUnPause()
     {
         unpauseButton.Play();
     }
 
-    public void PlayDeathSound(AudioClip clip)
+    public void PlayDeathSound()
     {
         deathSound.Play();
     }
 
-    public void PlayJump(AudioClip clip)
+    public void PlayJump()
     {
         jumpSound.Play();
     }
