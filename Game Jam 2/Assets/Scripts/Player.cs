@@ -43,7 +43,6 @@ public class Player : MonoBehaviour
         //if (menu.isPaused == false)
         //    return;
 
-
         CheckIfGrounded();
 
         //need to adjust
