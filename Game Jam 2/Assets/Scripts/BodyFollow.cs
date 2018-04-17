@@ -7,22 +7,39 @@ public class BodyFollow : MonoBehaviour
 
     [SerializeField] float speed = 10.0f;
 
-    [SerializeField] Transform target;
+    [Header("I dont think maxDistance works :/")]
+    [SerializeField] float maxDistance = 0.2f;
+
+    [SerializeField] Transform targetTransform;
 
     Vector3 offset;
 
-	void Awake()
+    float distance;
+
+    Quaternion rotation;
+
+
+    void Awake()
     {
-        offset = transform.position - target.position;
+        offset = transform.position - targetTransform.position;
+
+        distance = offset.magnitude;
+
+        rotation = Quaternion.Euler(targetTransform.eulerAngles.x, 0, 0);
+
     }
 
     private void FixedUpdate()
-    {         
-        transform.position = Vector3.Lerp(transform.position, target.position + offset, speed * Time.fixedDeltaTime);
+    {
+        transform.rotation = targetTransform.rotation;
 
-        //if (Vector3.Distance(transform.position, target.position + offset))
-        //{
+        Vector3 targetPos = targetTransform.position + rotation * offset;
 
-        //}
-	}
+        transform.position = Vector3.Lerp(transform.position, targetPos, speed * Time.fixedDeltaTime);
+
+        if (Vector3.Distance(transform.position, targetPos) > maxDistance)
+        {
+            transform.position = targetPos;
+        }
+    }
 }
