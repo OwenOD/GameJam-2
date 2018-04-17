@@ -9,7 +9,12 @@ public class Player : MonoBehaviour
 
     [SerializeField] float distToGround = 0.4f;
 
+<<<<<<< HEAD
     [SerializeField] float distToSide = 0.7f;
+=======
+    public GameObject pivot;
+    public AudioClip jumpSound;
+>>>>>>> fe356d0810cac140cc17e09a7deae1a3a36b1376
 
     [SerializeField] float jumpForce = 5;
 
@@ -99,7 +104,13 @@ public class Player : MonoBehaviour
     }
     void Rotate()
     {
+<<<<<<< HEAD
         rb.AddTorque(rotationForce, 0, 0, ForceMode.Acceleration);
+=======
+        Debug.Log("BOING!");
+        rb.velocity += new Vector3(0, boing, 0);
+        Sounds.instance.PlayJump(jumpSound);
+>>>>>>> fe356d0810cac140cc17e09a7deae1a3a36b1376
     }
 
     private void OnDrawGizmos()
