@@ -141,8 +141,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 2019711828}
-  slopePrefab: {fileID: 1208959183899984, guid: c1e5a4f0ac618224ca1a8f5516bbe832,
-    type: 2}
+  prefabs:
+  - {fileID: 1822405500764660, guid: bee513e0f9b4c5943ae8c112b9b18708, type: 2}
+  - {fileID: 1951578658419544, guid: a509ed9ce10b1ab4d8833794110fbd95, type: 2}
+  nextPlatformType: 97
   player: {fileID: 2063259597}
   distanceInFrontToSpawn: 30
   distanceBehindToDestroy: 30
@@ -319,6 +321,7 @@ GameObject:
   - component: {fileID: 1107457747}
   - component: {fileID: 1107457746}
   - component: {fileID: 1107457745}
+  - component: {fileID: 1107457749}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -383,12 +386,24 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1107457744}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -15.92, y: 1, z: -10}
+  m_LocalPosition: {x: -15.92, y: 6.94, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &1107457749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1107457744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56b79a59e1f6b774d80b6f8a1afd6dc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2063259597}
 --- !u!1 &2019711827
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,7 +445,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c7db2601e92efdf4c8591f69d3c45e59, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 5.12
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c7db2601e92efdf4c8591f69d3c45e59, type: 3}
       propertyPath: m_LocalPosition.z
@@ -487,15 +502,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startSpeed: 0.1
-  boing: 1
-  isGrounded: 0
+  distToGround: 0.4
+  distToSide: 0.7
+  jumpForce: 10
+  rotationForce: 5
+  pivot: {fileID: 0}
+  menu: {fileID: 0}
 --- !u!65 &2063259600
 BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2063259597}
-  m_Material: {fileID: 13400000, guid: 910775d1c0561754db9cdba52d09197c, type: 2}
+  m_Material: {fileID: 13400000, guid: ccd3287dc92c5a240a2e739dc61d80dc, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -507,11 +526,11 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2063259597}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: ccd3287dc92c5a240a2e739dc61d80dc, type: 2}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 0.36399108, y: 0.3155807, z: 1.4878422}
+  m_Size: {x: 0.36399108, y: 0.44, z: 1.65}
   m_Center: {x: 0, y: -0.06, z: 0}
 --- !u!54 &2063259602
 Rigidbody:
@@ -522,7 +541,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0

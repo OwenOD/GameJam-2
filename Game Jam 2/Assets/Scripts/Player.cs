@@ -2,21 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour
+{
 
-    public float startSpeed = 0.1f;
-    private float speed;
+    [SerializeField] float startSpeed = 0.1f;
 
-    public float boing;
+    [SerializeField] float distToGround = 0.4f;
 
-    public GameObject pivot;
+    [SerializeField] float distToSide = 0.7f;
 
-    //player should spawn above the ground
-    public bool isGrounded = false;
+    [SerializeField] float jumpForce = 5;
+
+    [SerializeField] float rotationForce = 5;
+
+    [SerializeField] GameObject pivot;
+
+    [SerializeField] Menu menu;
+
+    float speed;
+
+    // If the player is touching the ground or not
+    bool isGrounded = false;
+
+    bool wasMousePressed = false;
 
     Rigidbody rb;
 
-    public Menu menu;
     public void Start()
     {
         speed = startSpeed;
@@ -24,23 +35,29 @@ public class Player : MonoBehaviour {
     }
     public void Update()
     {
-        if (menu.isPaused == false)
-        {
-            //need to adjust
-            boing = (-rb.velocity.z / 3);
 
-            if (Input.GetKeyDown(KeyCode.Space))
+
+        //if (menu.isPaused == false)
+        {
+            CheckIfGrounded();
+
+
+            //need to adjust
+            //jumpForce = (-rb.velocity.z / 3);
+
+            if (Input.GetMouseButton(0))
             {
-                if (isGrounded)
+                if (wasMousePressed == false) // Initial mouse press
                 {
                     Jump();
                 }
-                else if (!isGrounded)
+
+                if (!isGrounded)
                 {
                     Rotate();
                 }
             }
-            Debug.Log("velovity is: " + rb.velocity);
+
             if (isGrounded)
             {
                 rb.velocity -= new Vector3(0, 0, speed);
@@ -50,47 +67,50 @@ public class Player : MonoBehaviour {
                 rb.velocity += new Vector3(0, 0, speed / 3);
             }
         }
-        else if (menu.isPaused)
-        {
-            Debug.Log("Game works");
-        }
-        else
-        {
-            Debug.Log("DANGER WILL ROBINSON!");
-        }
+
+        wasMousePressed = Input.GetMouseButton(0);
     }
-    public void OnTriggerEnter(Collider other)
+
+    void CheckIfGrounded()
     {
-        if (other.tag == "Environment")
+        isGrounded = false;
+
+        Ray ray = new Ray(transform.position, -transform.up);
+        RaycastHit hitInfo;
+        if (Physics.Raycast(ray, out hitInfo, distToGround))
         {
-            isGrounded = true;
+            if (hitInfo.collider.tag == "Environment")
+            {
+                isGrounded = true;
+            }
         }
     }
-    public void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Environment")
-        {
-            isGrounded = false;
-        }
-    }
-    public void OnMouseDown()
+
+    void Jump()
     {
         if (isGrounded)
         {
-            Jump();
-        }
-        else if (!isGrounded)
-        {
-            Rotate();
+            transform.position += new Vector3(0, distToGround + 0.01f, 0);
+
+            rb.AddForce(0, jumpForce, 0, ForceMode.VelocityChange);
+
+            isGrounded = false;
         }
     }
-    public void Jump()
+    void Rotate()
     {
-        Debug.Log("BOING!");
-        rb.velocity += new Vector3(0, boing, 0);
+        rb.AddTorque(rotationForce, 0, 0, ForceMode.Acceleration);
     }
-    public void Rotate()
+
+    private void OnDrawGizmos()
     {
-        Debug.Log("WEEEEEEE!");
+        // Draw a line for the grounded raycast
+        Gizmos.DrawLine(transform.position, transform.position + (transform.up * -distToGround));
+
+        // Draw a line for the grounded raycast
+        Gizmos.DrawLine(transform.position + (transform.forward * distToSide), transform.position + (transform.up * -distToGround) + (transform.forward * distToSide));
+
+        // Draw a line for the grounded raycast
+        Gizmos.DrawLine(transform.position + (transform.forward * -distToSide), transform.position + (transform.up * -distToGround) + (transform.forward * -distToSide));
     }
 }
