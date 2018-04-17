@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
         //if (menu.isPaused == false)
         //    return;
 
+
         CheckIfGrounded();
 
         //need to adjust
@@ -82,13 +83,22 @@ public class Player : MonoBehaviour
     {
         isGrounded = false;
 
-        Ray ray = new Ray(transform.position, -transform.up);
+        List<Ray> rays = new List<Ray>();
+
+        rays.Add(new Ray(transform.position, -transform.up));
+        rays.Add(new Ray(transform.position + (transform.forward * distToSide), -transform.up));
+        rays.Add(new Ray(transform.position + (transform.forward * -distToSide), -transform.up));
+
         RaycastHit hitInfo;
-        if (Physics.Raycast(ray, out hitInfo, distToGround))
+        foreach (var ray in rays)
         {
-            if (hitInfo.collider.tag == "Environment")
+            if (Physics.Raycast(ray, out hitInfo, distToGround))
             {
-                isGrounded = true;
+                if (hitInfo.collider.tag == "Environment")
+                {
+                    isGrounded = true;
+                    return;
+                }
             }
         }
     }
@@ -98,6 +108,8 @@ public class Player : MonoBehaviour
         if (isGrounded)
         {
             transform.position += new Vector3(0, distToGround + 0.01f, 0);
+
+            rb.velocity = new Vector3(0, 0, rb.velocity.z); // Remove y velocity before we jump
 
             rb.AddForce(0, jumpForce, 0, ForceMode.VelocityChange);
 
