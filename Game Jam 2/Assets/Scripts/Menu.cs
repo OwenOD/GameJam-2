@@ -10,19 +10,12 @@ public class Menu : MonoBehaviour {
     [SerializeField] AudioClip pauseClip;
     [SerializeField] AudioClip unpauseClip;
 
-    Rigidbody rb;
     public bool isPaused;
     // Use this for initialization
     void Start ()
     {
         isPaused = false;
     }
-	
-	// Update is called once per frame
-	void Update ()
-    {
-        
-	}
     public void Pause()
     {
         Time.timeScale = 0;
@@ -33,7 +26,6 @@ public class Menu : MonoBehaviour {
 
         isPaused = true;
     }
-
     public void UnPause()
     {
         Time.timeScale = 1;
