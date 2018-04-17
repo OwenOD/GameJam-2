@@ -2,32 +2,52 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AutoGeneration : MonoBehaviour {
+public class AutoGeneration : MonoBehaviour
+{
+    [SerializeField] Transform parent;
 
-	//Variables
-	public GameObject[] obj;
-	public Transform spawner;
-	public float spawnMin = 0.1f;					//Randomly spawn between 1 and 2 seonds
-	public float spawnMax = 1.0f;
-	Vector3 previousPos;
-	Vector3 offSet = new Vector3(8.23f, -3.36f, 0.0f);
-	int count = 0;
-	//public GameObject player;
-	//float distance;
+    [SerializeField] GameObject slopePrefab;
 
-	// Use this for initialization
-	void Start () 
+    [SerializeField] GameObject player;
+
+    Vector3 currentPos;
+
+    [SerializeField] float distanceInFrontToSpawn = 30;
+    [SerializeField] float distanceBehindToDestroy = 30;
+
+    void Start() 
 	{
-		Spawn ();																								//Calls Spawn function
-	}
-	
-	// Update is called once per frame
-	void Spawn () 
+        currentPos = parent.position;
+
+    }
+
+    void Update()
+    {
+        // Check if we should spawn a new platform
+        if (player.transform.position.z - distanceInFrontToSpawn < currentPos.z)
+        {
+            Spawn();
+        }
+
+        // Check if we should destroy a platform
+        Transform platform = parent.GetChild(0);
+        if (player.transform.position.z + distanceBehindToDestroy < platform.position.z)
+        {
+            Destroy(platform.gameObject);
+        }
+    }
+
+    void Spawn() 
 	{
-		transform.position = spawner.position + count * offSet;													//Sets the position of the object 
-		Instantiate(obj[Random.Range(0, obj.GetLength(0))], transform.position, obj[0].transform.rotation);		//Clones the original object and returns the clone
-		Invoke("Spawn", Random.Range (spawnMin, spawnMax));														//Invokes the Methods methodname at the time set (between 1 and 2 seconds)
-		count++;
+
+        // Spawn the platform
+        GameObject newPlatform = Instantiate(slopePrefab, currentPos, slopePrefab.transform.rotation);
+
+        // Set the parent
+        newPlatform.transform.parent = parent;
+
+        // Set the next position
+        currentPos = newPlatform.transform.GetChild(0).transform.position;
 
 	}
 }
