@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
         if (isGrounded)
         {
             rb.drag = normalDrag;
-            rb.velocity -= new Vector3(0, 0, speed);
+            rb.velocity -= new Vector3(0, 0, speed * 2);
         }
         // Add air resistance while in the air
         if (!isGrounded)
@@ -78,8 +78,6 @@ public class Player : MonoBehaviour
         }
 
         wasMousePressed = Input.GetMouseButton(0);
-
-
     }
 
     void CheckIfGrounded()
@@ -139,6 +137,10 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(other.tag == "ColourChangeTrigger")
+        {
+            return;
+        }
         if (other.tag == "Environment")
         {
             alive = false;

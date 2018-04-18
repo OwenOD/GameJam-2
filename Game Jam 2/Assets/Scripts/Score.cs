@@ -39,7 +39,7 @@ public class Score : MonoBehaviour
         {
             PlayerPrefs.SetFloat("HighScore", gm.highscore);                   //Saves the HighScore
 
-            //menu.Restart();
+            menu.GameOver();
         }
 
         if (currentScoreCount > gm.highscore)
