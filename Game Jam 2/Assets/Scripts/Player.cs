@@ -21,9 +21,9 @@ public class Player : MonoBehaviour
     [SerializeField] float airDrag = 0.5f;
 
 
-    [SerializeField] GameObject pivot;
+    //[SerializeField] GameObject pivot;
 
-    [SerializeField] Menu menu;
+    //[SerializeField] Menu menu;
 
     public bool alive = true;
 
@@ -126,6 +126,7 @@ public class Player : MonoBehaviour
             Sounds.instance.PlayJump();
         }
     }
+
     void Rotate()
     {
         if (EventSystem.current.IsPointerOverGameObject())

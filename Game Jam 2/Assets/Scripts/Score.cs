@@ -10,35 +10,20 @@ public class Score : MonoBehaviour
     public Text highScore;
 
     private float currentScoreCount;
-    private float topScoreCount;
 
-    GameObject player;
+    [SerializeField] GameObject player;
 
     Player playerScript;
 
-    static Score instance = null;
+    GameManager gm;
 
     void Awake()
     {
-        if (instance)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            instance = this;
-            DontDestroyOnLoad(this);
-            player = GameObject.FindGameObjectWithTag("Player");
-        }
-
         playerScript = player.GetComponent<Player>();
+
+        gm = GameManager.instance;
     }
 
-    private void OnLevelWasLoaded(int level)
-    {
-        player = GameObject.FindGameObjectWithTag("Player");
-
-    }
 
     void Update()
     {
@@ -48,15 +33,15 @@ public class Score : MonoBehaviour
 
         if (playerScript.alive == false)
         {
-            PlayerPrefs.SetFloat("HighScore", topScoreCount);                   //Saves the HighScore
+            PlayerPrefs.SetFloat("HighScore", gm.highscore);                   //Saves the HighScore
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
-        if (currentScoreCount > topScoreCount)
+        if (currentScoreCount > gm.highscore)
         {
-            topScoreCount = currentScoreCount;
+            gm.highscore = currentScoreCount;
         }
 
-        highScore.text = "HighScore: " + topScoreCount.ToString("F2") + "m";
+        highScore.text = "HighScore: " + gm.highscore.ToString("F2") + "m";
     }
 }

@@ -14,16 +14,12 @@ public class BodyFollow : MonoBehaviour
 
     Vector3 offset;
 
-    float distance;
-
     Quaternion rotation;
 
 
     void Awake()
     {
         offset = transform.position - targetTransform.position;
-
-        distance = offset.magnitude;
 
         rotation = Quaternion.Euler(targetTransform.eulerAngles.x, 0, 0);
 
