@@ -21,9 +21,11 @@ public class Score : MonoBehaviour
     {
         playerScript = player.GetComponent<Player>();
 
+    }
+    void Start()
+    {
         gm = GameManager.instance;
     }
-
 
     void Update()
     {
