@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour {
 
     public GameObject PlayScreen;
     public GameObject PauseScreen;
     public GameObject pauseButton;
- 
+    public GameObject GameOverScreen;
+
     public bool isPaused;
     // Use this for initialization
     void Start ()
@@ -20,8 +22,6 @@ public class Menu : MonoBehaviour {
         PauseScreen.SetActive(true);
         PlayScreen.SetActive(false);
 
- 
-
         isPaused = true;
     }
     public void UnPause()
@@ -30,7 +30,19 @@ public class Menu : MonoBehaviour {
         PlayScreen.SetActive(true);
         PauseScreen.SetActive(false);
 
-
         isPaused = false;
+    }
+    public void GameOver()
+    {
+        PlayScreen.SetActive(false);
+        GameOverScreen.SetActive(true);
+    }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+    public void Restart()
+    {
+        SceneManager.LoadScene(1);
     }
 }
