@@ -36,7 +36,7 @@ public class Score : MonoBehaviour
         if (playerScript.alive == false)
         {
             PlayerPrefs.SetFloat("HighScore", gm.highscore);                   //Saves the HighScore
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
         if (currentScoreCount > gm.highscore)
