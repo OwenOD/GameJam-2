@@ -9,13 +9,13 @@ public class Menu : MonoBehaviour {
     public GameObject PauseScreen;
     public GameObject pauseButton;
     public GameObject GameOverScreen;
+    
 
     public bool isPaused;
     // Use this for initialization
     void Start ()
     {
         isPaused = false;
-        Sounds.instance.PlayMenuMusic();
     }
     public void Pause()
     {
