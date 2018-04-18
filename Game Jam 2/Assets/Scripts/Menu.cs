@@ -40,6 +40,7 @@ public class Menu : MonoBehaviour {
     public void MainMenu()
     {
         SceneManager.LoadScene(0);
+        Sounds.instance.PlayMenuMusic();
     }
     public void Restart()
     {
