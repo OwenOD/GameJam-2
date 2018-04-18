@@ -15,6 +15,7 @@ public class Menu : MonoBehaviour {
     void Start ()
     {
         isPaused = false;
+        Sounds.instance.PlayMenuMusic();
     }
     public void Pause()
     {
@@ -40,11 +41,9 @@ public class Menu : MonoBehaviour {
     public void MainMenu()
     {
         SceneManager.LoadScene(0);
-        Sounds.instance.PlayMenuMusic();
     }
     public void Restart()
     {
         SceneManager.LoadScene(1);
-        Sounds.instance.PlayBackGroundMusic();
     }
 }
