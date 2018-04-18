@@ -8,10 +8,8 @@ public class Sounds : MonoBehaviour
 {
     [SerializeField] AudioSource jumpSound;
     [SerializeField] AudioSource backGroundMusic;
-    [SerializeField] AudioSource startButton;
+    [SerializeField] AudioSource menuMusic;
     [SerializeField] AudioSource deathSound;
-    [SerializeField] AudioSource pauseButton;
-    [SerializeField] AudioSource unpauseButton;
 
     public static Sounds instance = null;
 
@@ -27,21 +25,6 @@ public class Sounds : MonoBehaviour
 
     //Plays All Sounds
 
-    public void PlayStartButton()
-    {
-        startButton.Play();
-    }
-
-    public void PlayPauseButton()
-    {
-        pauseButton.Play();
-    }
-
-    public void PlayUnPause()
-    {
-        unpauseButton.Play();
-    }
-
     public void PlayDeathSound()
     {
         deathSound.Play();
@@ -55,5 +38,10 @@ public class Sounds : MonoBehaviour
     public void PlayBackGroundMusic()
     {
         backGroundMusic.Play();
+    }
+
+    public void PlayMenuMusic()
+    {
+        menuMusic.Play();
     }
 }

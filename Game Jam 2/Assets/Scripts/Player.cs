@@ -142,6 +142,7 @@ public class Player : MonoBehaviour
         if (other.tag == "Environment")
         {
             alive = false;
+            Sounds.instance.PlayDeathSound();
         }
     }
 
