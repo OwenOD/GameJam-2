@@ -17,6 +17,8 @@ public class Score : MonoBehaviour
 
     GameManager gm;
 
+    [SerializeField] Menu menu;
+
     void Awake()
     {
         playerScript = player.GetComponent<Player>();
@@ -36,7 +38,8 @@ public class Score : MonoBehaviour
         if (playerScript.alive == false)
         {
             PlayerPrefs.SetFloat("HighScore", gm.highscore);                   //Saves the HighScore
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+            menu.Restart();
         }
 
         if (currentScoreCount > gm.highscore)
