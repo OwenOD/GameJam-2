@@ -2,31 +2,61 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Score : MonoBehaviour
 {
     public Text score;
     public Text highScore;
 
-    private float currentScoreCount = 0.0f;
-    private float topScore;
-    private Vector3 distance;
+    private float currentScoreCount;
+    private float topScoreCount;
 
-    [SerializeField] GameObject player;
-    private bool isPlayerAlive = true;
+    GameObject player;
 
-    // Use this for initialization
-    void Start ()
+    Player playerScript;
+
+    static Score instance = null;
+
+    void Awake()
     {
-        
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-        Mathf.Abs(currentScoreCount);
-        currentScoreCount = distance.z + player.transform.position.z;
-        score.text = "Score: " + currentScoreCount + "m";
-	}
+        if (instance)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(this);
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
 
+        playerScript = player.GetComponent<Player>();
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+
+    }
+
+    void Update()
+    {
+        currentScoreCount = player.transform.position.z;
+        currentScoreCount = Mathf.Abs(currentScoreCount);
+        score.text = "Score: " + currentScoreCount.ToString("F2") + "m";
+
+        if (playerScript.alive == false)
+        {
+            PlayerPrefs.SetFloat("HighScore", topScoreCount);                   //Saves the HighScore
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
+        if (currentScoreCount > topScoreCount)
+        {
+            topScoreCount = currentScoreCount;
+        }
+
+        highScore.text = "HighScore: " + topScoreCount.ToString("F2") + "m";
+    }
 }
