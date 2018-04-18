@@ -22,6 +22,7 @@ public class Menu : MonoBehaviour {
         Time.timeScale = 0;
         PauseScreen.SetActive(true);
         PlayScreen.SetActive(false);
+        Sounds.instance.PlayMenuMusic();
 
         isPaused = true;
     }
@@ -30,6 +31,7 @@ public class Menu : MonoBehaviour {
         Time.timeScale = 1;
         PlayScreen.SetActive(true);
         PauseScreen.SetActive(false);
+        Sounds.instance.PlayBackGroundMusic();
 
         isPaused = false;
     }
@@ -37,6 +39,7 @@ public class Menu : MonoBehaviour {
     {
         PlayScreen.SetActive(false);
         GameOverScreen.SetActive(true);
+        Sounds.instance.PlayMenuMusic();
     }
     public void MainMenu()
     {
